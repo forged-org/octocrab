@@ -33,15 +33,18 @@ base64 = "0.21.0"
 bytes = "1.0.1"
 jsonwebtoken = "8"
 futures = { version = "0.3.15" }
-secrecy = "0.8.0"
+secrecy = "0.7.0"
 cfg-if = "1.0.0"
 either = "1.8.0"
 hyper = { version = "0.14.13", features = ["client", "http1", "stream", "tcp"] }
 http = "0.2.5"
 tower-http = { version = "0.4.0", features = ["map-response-body", "trace"] }
-hyper-timeout = {version = "0.4.1", optional = true }
+hyper-timeout = { version = "0.4.1", optional = true }
 http-body = "0.4.5"
-tower = { version = "0.4.13", default-features = false, features = ["util", "buffer"] }
+tower = { version = "0.4.13", default-features = false, features = [
+    "util",
+    "buffer",
+] }
 hyper-rustls = { version = "0.23.2", optional = true }
 tracing = { version = "0.1.37", features = ["log"], optional = true }
 serde_urlencoded = "0.7.1"

@@ -7,6 +7,7 @@ use jsonwebtoken::{Algorithm, EncodingKey, Header};
 use secrecy::{ExposeSecret, SecretString};
 use serde::{Deserialize, Serialize};
 use std::fmt;
+use std::str::FromStr;
 use std::time::SystemTime;
 
 use snafu::*;
@@ -111,7 +112,7 @@ struct OAuthWire {
 impl From<OAuthWire> for OAuth {
     fn from(value: OAuthWire) -> Self {
         OAuth {
-            access_token: SecretString::from(value.access_token),
+            access_token: SecretString::from_str(&value.access_token).unwrap(),
             token_type: value.token_type,
             scope: value.scope.split(',').map(ToString::to_string).collect(),
         }
